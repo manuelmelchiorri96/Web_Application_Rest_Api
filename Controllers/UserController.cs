@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Web_Application_Rest_Api.Exceptions;
 using Web_Application_Rest_Api.Model;
 using Web_Application_Rest_Api.Model.Request;
 using Web_Application_Rest_Api.Services;
@@ -16,46 +17,87 @@ namespace Web_Application_Rest_Api.Controllers {
         }
 
 
-        [HttpGet("all")]
-        public IActionResult AllUsers() {
-            var users = _userService.GetAllUsers();
-            return Ok(users);
-        }
-
         [HttpGet("{idUser}")]
         public IActionResult GetUser(int idUser) {
-            var user = _userService.GetUserById(idUser);
-
-            if (user == null) {
-                return NotFound();
+            try{
+                var user = _userService.GetUserById(idUser);
+                return Ok(user);
             }
-            return Ok(user);
+            catch (UserNotFoundException ex) {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex) {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("all")]
+        public IActionResult AllUsers() {
+            try {
+                var users = _userService.GetAllUsers();
+                return Ok(users);
+            }
+            catch (EmptyUserListException ex) {
+                return NotFound(ex.Message);
+            }
+            catch (Exception) {
+                return StatusCode(500, "Internal server error");
+            }
         }
 
         [HttpPost]
         public IActionResult AddUser([FromBody] UserDto user) {
-            var newUser = _userService.AddUser(user);
-            return CreatedAtAction(nameof(GetUser), new { idUser = newUser.Id }, newUser);
+            try{
+                var newUser = _userService.AddUser(user);
+                return CreatedAtAction(nameof(GetUser), new { idUser = newUser.Id }, newUser);
+            }
+            catch (DuplicateUserException ex) {
+                return Conflict(ex.Message);
+            }
+            catch (UserValidationException ex) {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex) {
+                return StatusCode(500, "Internal server error");
+            }
         }
 
         [HttpPut("{idUser}")]
         public IActionResult UpdateUser(int idUser, [FromBody] UserDto user) {
-            var updated = _userService.UpdateUser(idUser, user);
-
-            if (!updated) {
-                return NotFound();
+            try {
+                var updated = _userService.UpdateUser(idUser, user);
+                if (!updated) {
+                    return NotFound();
+                }
+                return NoContent();
             }
-            return NoContent();
+            catch (UpdateUserFailedException ex) {
+                return NotFound(ex.Message);
+            }
+            catch (UserValidationException ex) {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex) {
+                return StatusCode(500, "Internal server error");
+            }
         }
 
         [HttpDelete("{idUser}")]
         public IActionResult DeleteUser(int idUser) {
-            var deleted = _userService.DeleteUser(idUser);
-
-            if (!deleted) {
-                return NotFound();
+            try {
+                var deleted = _userService.DeleteUser(idUser);
+                if (!deleted) {
+                    return NotFound();
+                }
+                return NoContent();
             }
-            return NoContent();
+            catch (DeleteUserFailedException ex) {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex) {
+                return StatusCode(500, "Internal server error");
+            }
         }
+
     }
 }
