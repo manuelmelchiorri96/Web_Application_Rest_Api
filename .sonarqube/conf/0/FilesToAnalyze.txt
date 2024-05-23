@@ -3,7 +3,7 @@ C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Database\DatabaseContex
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Migrations\20240521133302_InitialCreate.cs
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Migrations\20240521133302_InitialCreate.Designer.cs
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Migrations\DatabaseContextModelSnapshot.cs
-C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Models\DTO\UserDTO.cs
+C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Models\dto\UserDto.cs
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Models\User.cs
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Program.cs
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Services\IUserService.cs
