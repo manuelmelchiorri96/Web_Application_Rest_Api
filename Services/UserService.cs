@@ -21,7 +21,7 @@ namespace Web_Application_Rest_Api.Services {
             return _context.Users.FirstOrDefault(x => x.Id == id)!;
         }
 
-        public User AddUser(UserDTO userDto) {
+        public User AddUser(UserDto userDto) {
             var newUser = new User {
                 Name = userDto.Name,
                 Email = userDto.Email,
@@ -33,7 +33,7 @@ namespace Web_Application_Rest_Api.Services {
             return newUser;
         }
 
-        public bool UpdateUser(int id, UserDTO userDto) {
+        public bool UpdateUser(int id, UserDto userDto) {
             var userToUpdate = _context.Users.FirstOrDefault(x => x.Id == id);
 
             if (userToUpdate == null) return false;

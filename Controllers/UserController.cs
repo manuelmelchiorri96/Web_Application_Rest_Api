@@ -33,13 +33,13 @@ namespace Web_Application_Rest_Api.Controllers {
         }
 
         [HttpPost]
-        public IActionResult AddUser([FromBody] UserDTO user) {
+        public IActionResult AddUser([FromBody] UserDto user) {
             var newUser = _userService.AddUser(user);
             return CreatedAtAction(nameof(GetUser), new { idUser = newUser.Id }, newUser);
         }
 
         [HttpPut("{idUser}")]
-        public IActionResult UpdateUser(int idUser, [FromBody] UserDTO user) {
+        public IActionResult UpdateUser(int idUser, [FromBody] UserDto user) {
             var updated = _userService.UpdateUser(idUser, user);
 
             if (!updated) {
