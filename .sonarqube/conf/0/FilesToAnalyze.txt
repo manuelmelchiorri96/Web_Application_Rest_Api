@@ -1,5 +1,11 @@
 ﻿C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Controllers\UserController.cs
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Database\DatabaseContext.cs
+C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Exceptions\DeleteUserFailedException.cs
+C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Exceptions\DuplicateUserException.cs
+C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Exceptions\EmptyUserListException .cs
+C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Exceptions\UpdateUserFailedException.cs
+C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Exceptions\UserNotFoundException.cs
+C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Exceptions\UserValidationException.cs
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Migrations\20240521133302_InitialCreate.cs
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Migrations\20240521133302_InitialCreate.Designer.cs
 C:\Users\Utente\Desktop\.NET-C#\Web_Application_Rest_Api\Migrations\DatabaseContextModelSnapshot.cs

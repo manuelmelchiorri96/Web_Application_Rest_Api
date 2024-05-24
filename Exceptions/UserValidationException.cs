@@ -1,6 +1,8 @@
-﻿namespace Web_Application_Rest_Api.Exceptions {
+﻿using System.Runtime.Serialization;
 
-    public class UserValidationException : Exception {
+namespace Web_Application_Rest_Api.Exceptions {
+
+    public class UserValidationException : Exception, ISerializable {
 
         public UserValidationException(string message) : base(message) {
 

@@ -1,6 +1,8 @@
-﻿namespace Web_Application_Rest_Api.Exceptions {
+﻿using System.Runtime.Serialization;
 
-    public class DuplicateUserException : Exception {
+namespace Web_Application_Rest_Api.Exceptions {
+
+    public class DuplicateUserException : Exception, ISerializable {
 
         public DuplicateUserException(string message) : base(message) {
         

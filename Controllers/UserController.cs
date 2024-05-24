@@ -26,7 +26,7 @@ namespace Web_Application_Rest_Api.Controllers {
             catch (UserNotFoundException ex) {
                 return NotFound(ex.Message);
             }
-            catch (Exception ex) {
+            catch (Exception) {
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -57,7 +57,7 @@ namespace Web_Application_Rest_Api.Controllers {
             catch (UserValidationException ex) {
                 return BadRequest(ex.Message);
             }
-            catch (Exception ex) {
+            catch (Exception) {
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -77,7 +77,7 @@ namespace Web_Application_Rest_Api.Controllers {
             catch (UserValidationException ex) {
                 return BadRequest(ex.Message);
             }
-            catch (Exception ex) {
+            catch (Exception) {
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -94,7 +94,7 @@ namespace Web_Application_Rest_Api.Controllers {
             catch (DeleteUserFailedException ex) {
                 return NotFound(ex.Message);
             }
-            catch (Exception ex) {
+            catch (Exception) {
                 return StatusCode(500, "Internal server error");
             }
         }
